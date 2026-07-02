@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Filipe Ribeiro Simões — Desenvolvedor de Software</title>
+<meta name="description" content="Portfólio de Filipe Ribeiro Simões, desenvolvedor de software e estudante de Engenharia de Software na PUC-Campinas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-0: #0e0f11;
+    --bg-1: #15171a;
+    --bg-2: #1c1f23;
+    --line: #2a2e33;
+    --text-1: #e8eaec;
+    --text-2: #9aa0a6;
+    --text-3: #5f666d;
+    --accent: #1d9e75;
+    --accent-soft: rgba(29, 158, 117, 0.12);
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+  body {
+    background: var(--bg-0);
+    color: var(--text-1);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Nav ---------- */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(14, 15, 17, 0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: 960px; margin: 0 auto; padding: 16px 24px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .nav-logo { font-family: var(--font-mono); font-size: 14px; color: var(--text-2); text-decoration: none; }
+  .nav-logo b { color: var(--accent); font-weight: 500; }
+  .nav-links { display: flex; gap: 24px; }
+  .nav-links a {
+    font-size: 13px; color: var(--text-2); text-decoration: none;
+    font-family: var(--font-mono); transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a:focus-visible { color: var(--accent); }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  /* ---------- Hero ---------- */
+  header { padding: 110px 0 90px; border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
+  header::before {
+    content: ""; position: absolute; inset: 0;
+    background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 48px 48px; opacity: 0.25;
+    mask-image: radial-gradient(ellipse 70% 60% at 30% 40%, black, transparent);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 30% 40%, black, transparent);
+  }
+  .hero { position: relative; }
+  .hero-eyebrow {
+    font-family: var(--font-mono); font-size: 13px; color: var(--accent);
+    margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
+  }
+  .hero-eyebrow::before { content: ""; width: 32px; height: 1px; background: var(--accent); display: inline-block; }
+  h1 {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(40px, 7vw, 72px); line-height: 1.05; letter-spacing: -0.02em;
+  }
+  h1 .thin { color: var(--text-3); font-weight: 400; }
+  .hero-sub { margin-top: 24px; max-width: 560px; color: var(--text-2); font-size: 17px; }
+  .hero-actions { margin-top: 36px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    font-family: var(--font-mono); font-size: 14px; text-decoration: none;
+    padding: 11px 22px; border-radius: 6px; transition: all 0.2s;
+  }
+  .btn-primary { background: var(--accent); color: #06251b; font-weight: 500; }
+  .btn-primary:hover { background: #24b988; transform: translateY(-1px); }
+  .btn-ghost { border: 1px solid var(--line); color: var(--text-2); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ---------- Sections ---------- */
+  section { padding: 90px 0; border-bottom: 1px solid var(--line); }
+  .sec-label {
+    font-family: var(--font-mono); font-size: 13px; color: var(--text-3); margin-bottom: 12px;
+  }
+  .sec-label b { color: var(--accent); font-weight: 400; }
+  h2 {
+    font-family: var(--font-display); font-weight: 500;
+    font-size: clamp(26px, 4vw, 36px); letter-spacing: -0.01em; margin-bottom: 40px;
+  }
+
+  /* ---------- Sobre ---------- */
+  .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: start; }
+  .about-grid p { color: var(--text-2); margin-bottom: 16px; }
+  .about-grid p b { color: var(--text-1); font-weight: 500; }
+  .fact-card {
+    background: var(--bg-1); border: 1px solid var(--line); border-radius: 10px; padding: 24px;
+    font-family: var(--font-mono); font-size: 13px;
+  }
+  .fact-card dt { color: var(--text-3); margin-top: 14px; }
+  .fact-card dt:first-child { margin-top: 0; }
+  .fact-card dd { color: var(--text-1); }
+
+  /* ---------- Git log (projetos) ---------- */
+  .gitlog { position: relative; padding-left: 28px; }
+  .gitlog::before {
+    content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px;
+    width: 2px; background: var(--line);
+  }
+  .commit { position: relative; padding-bottom: 48px; }
+  .commit:last-child { padding-bottom: 0; }
+  .commit::before {
+    content: ""; position: absolute; left: -28px; top: 6px;
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--bg-0); border: 2px solid var(--accent);
+  }
+  .commit-meta {
+    font-family: var(--font-mono); font-size: 12.5px; color: var(--text-3); margin-bottom: 10px;
+    display: flex; gap: 14px; flex-wrap: wrap;
+  }
+  .commit-meta .hash { color: var(--accent); }
+  .commit-card {
+    background: var(--bg-1); border: 1px solid var(--line); border-radius: 10px;
+    padding: 26px 28px; transition: border-color 0.25s, transform 0.25s;
+  }
+  .commit-card:hover { border-color: var(--accent); transform: translateX(4px); }
+  .commit-card h3 { font-family: var(--font-display); font-size: 20px; font-weight: 500; margin-bottom: 8px; }
+  .commit-card p { color: var(--text-2); font-size: 15px; margin-bottom: 16px; }
+  .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag {
+    font-family: var(--font-mono); font-size: 12px; color: var(--accent);
+    background: var(--accent-soft); padding: 4px 10px; border-radius: 4px;
+  }
+
+  /* ---------- Skills ---------- */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+  .skill-group { background: var(--bg-1); border: 1px solid var(--line); border-radius: 10px; padding: 22px; }
+  .skill-group h3 { font-family: var(--font-mono); font-size: 13px; font-weight: 500; color: var(--accent); margin-bottom: 14px; }
+  .skill-group ul { list-style: none; }
+  .skill-group li { color: var(--text-2); font-size: 14px; padding: 4px 0; }
+
+  /* ---------- Pesquisa ---------- */
+  .research-card {
+    background: var(--bg-1); border: 1px solid var(--line); border-left: 3px solid var(--accent);
+    border-radius: 0 10px 10px 0; padding: 28px 30px;
+  }
+  .research-card h3 { font-family: var(--font-display); font-size: 19px; font-weight: 500; margin-bottom: 10px; }
+  .research-card p { color: var(--text-2); font-size: 15px; }
+  .research-card .venue { font-family: var(--font-mono); font-size: 12.5px; color: var(--text-3); margin-top: 14px; }
+
+  /* ---------- Contato ---------- */
+  .contact { text-align: left; }
+  .contact-links { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
+  footer { padding: 32px 0; text-align: center; }
+  footer p { font-family: var(--font-mono); font-size: 12.5px; color: var(--text-3); }
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.on { opacity: 1; transform: none; }
+
+  @media (max-width: 720px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .nav-links { gap: 16px; }
+    section, header { padding: 64px 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#"><b>~/</b>filipe-simoes</a>
+    <div class="nav-links">
+      <a href="#sobre">sobre</a>
+      <a href="#projetos">projetos</a>
+      <a href="#skills">skills</a>
+      <a href="#contato">contato</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap hero">
+    <p class="hero-eyebrow">Hortolândia · São Paulo, Brasil</p>
+    <h1>Filipe Ribeiro Simões<br><span class="thin">constrói software com propósito.</span></h1>
+    <p class="hero-sub">Desenvolvedor de software e estudante de Engenharia de Software na PUC-Campinas. Trabalho do no-code ao machine learning — passando por backend, dados e pesquisa em IA.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#projetos">ver projetos →</a>
+      <a class="btn btn-ghost" href="mailto:filiperibeirosimoes@gmail.com">entrar em contato</a>
+    </div>
+  </div>
+</header>
+
+<section id="sobre">
+  <div class="wrap">
+    <p class="sec-label"><b>$</b> cat sobre.md</p>
+    <h2>Sobre mim</h2>
+    <div class="about-grid">
+      <div class="reveal">
+        <p>Sou desenvolvedor em formação com uma trajetória que cruza <b>desenvolvimento de aplicações</b>, <b>engenharia de dados</b> e <b>inteligência artificial</b>. No dia a dia, construo aplicações completas — do banco de dados à interface — e gosto de resolver problemas de ponta a ponta.</p>
+        <p>Além do código, sou coautor de um artigo acadêmico sobre o papel da IA na mitigação das mudanças climáticas, o que reflete meu interesse em usar tecnologia para problemas que importam.</p>
+      </div>
+      <dl class="fact-card reveal">
+        <dt>formação</dt><dd>Eng. de Software — PUC-Campinas</dd>
+        <dt>foco</dt><dd>Full-stack · Dados · IA</dd>
+        <dt>base</dt><dd>Hortolândia, SP</dd>
+        <dt>status</dt><dd>aberto a oportunidades</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section id="projetos">
+  <div class="wrap">
+    <p class="sec-label"><b>$</b> git log --oneline</p>
+    <h2>Projetos</h2>
+    <div class="gitlog">
+
+      <article class="commit reveal">
+        <p class="commit-meta"><span class="hash">a3f9e21</span><span>2025</span><span>equipe de 6</span></p>
+        <div class="commit-card">
+          <h3>PrimeStudy — plataforma de estudos com IA</h3>
+          <p>Plataforma web que usa IA generativa para apoiar estudantes. Fui responsável pela configuração do ambiente, autenticação com Firebase e JWT, modelagem de dados no Firestore e frontend de autenticação.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Firebase</span><span class="tag">Google Gemini</span></div>
+        </div>
+      </article>
+
+      <article class="commit reveal">
+        <p class="commit-meta"><span class="hash">7c2d84b</span><span>2025</span><span>solo</span></p>
+        <div class="commit-card">
+          <h3>Data Warehouse de vendas</h3>
+          <p>Data warehouse com esquema estrela sobre 100 mil registros de vendas: quatro dimensões, tabela fato, dez consultas analíticas e visualizações para apoio à decisão.</p>
+          <div class="tags"><span class="tag">DuckDB</span><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">matplotlib</span></div>
+        </div>
+      </article>
+
+      <article class="commit reveal">
+        <p class="commit-meta"><span class="hash">e91b0c5</span><span>2025</span><span>solo</span></p>
+        <div class="commit-card">
+          <h3>Task Manager — aplicação no-code</h3>
+          <p>Aplicação completa de gestão de tarefas: modelagem de banco, autenticação, gestão de usuários com workflows de backend e UI padronizada seguindo manual de nomenclatura.</p>
+          <div class="tags"><span class="tag">Bubble.io</span><span class="tag">No-code</span><span class="tag">UX</span></div>
+        </div>
+      </article>
+
+      <article class="commit reveal">
+        <p class="commit-meta"><span class="hash">4d5aa17</span><span>2025</span><span>em grupo</span></p>
+        <div class="commit-card">
+          <h3>API com CI/CD e testes automatizados</h3>
+          <p>API Node.js integrada a um repositório compartilhado, com testes unitários em Jest, testes E2E com Selenium e pipeline de integração contínua.</p>
+          <div class="tags"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Jest</span><span class="tag">Selenium</span><span class="tag">CI/CD</span></div>
+        </div>
+      </article>
+
+      <article class="commit reveal">
+        <p class="commit-meta"><span class="hash">b08f3e9</span><span>2025</span><span>solo</span></p>
+        <div class="commit-card">
+          <h3>Classificador de imagens com CNN</h3>
+          <p>Pipeline completo de deep learning para classificação no CIFAR-10: data augmentation, early stopping e análise com matriz de confusão.</p>
+          <div class="tags"><span class="tag">PyTorch</span><span class="tag">Python</span><span class="tag">Deep Learning</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <p class="sec-label"><b>$</b> ls skills/</p>
+    <h2>Habilidades</h2>
+    <div class="skills-grid">
+      <div class="skill-group reveal">
+        <h3>// linguagens</h3>
+        <ul><li>Python</li><li>JavaScript / Node.js</li><li>SQL</li><li>Lisp · Prolog</li></ul>
+      </div>
+      <div class="skill-group reveal">
+        <h3>// backend &amp; dados</h3>
+        <ul><li>Flask · Express</li><li>Firebase · Firestore</li><li>DuckDB</li><li>Modelagem de dados</li></ul>
+      </div>
+      <div class="skill-group reveal">
+        <h3>// ia &amp; ml</h3>
+        <ul><li>PyTorch</li><li>APIs de LLM (Gemini)</li><li>Regressão · CNNs</li><li>Avaliação de modelos</li></ul>
+      </div>
+      <div class="skill-group reveal">
+        <h3>// ferramentas</h3>
+        <ul><li>Git · CI/CD</li><li>Jest · Selenium</li><li>Bubble.io</li><li>ClickUp</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pesquisa">
+  <div class="wrap">
+    <p class="sec-label"><b>$</b> open pesquisa/</p>
+    <h2>Pesquisa</h2>
+    <div class="research-card reveal">
+      <h3>IA na mitigação das mudanças climáticas e transição energética justa</h3>
+      <p>Artigo acadêmico em coautoria explorando como a inteligência artificial pode acelerar a transição energética de forma socialmente justa.</p>
+      <p class="venue">Apresentado em World Symposium — UFF · coautoria com André Felipe Simões e Gustavo José Simões</p>
+    </div>
+  </div>
+</section>
+
+<section id="contato" style="border-bottom: none;">
+  <div class="wrap contact">
+    <p class="sec-label"><b>$</b> ping filipe</p>
+    <h2>Vamos conversar?</h2>
+    <p style="color: var(--text-2); max-width: 520px;">Estou aberto a oportunidades de estágio, projetos e colaborações. A forma mais rápida de me encontrar é por e-mail.</p>
+    <div class="contact-links">
+      <a class="btn btn-primary" href="mailto:filiperibeirosimoes@gmail.com">filiperibeirosimoes@gmail.com</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/filipe-sim%C3%B5es-03692a27a/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn btn-ghost" href="https://github.com/SEU-USUARIO" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Filipe Ribeiro Simões · feito à mão com HTML e CSS</p>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
