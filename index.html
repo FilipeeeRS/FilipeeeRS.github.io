@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Filipe Ribeiro Simões — Desenvolvedor de Software</title>
-<meta name="description" content="Portfólio de Filipe Ribeiro Simões, desenvolvedor de software e estudante de Engenharia de Software na PUC-Campinas.">
+<title>Filipe Ribeiro Simões — Software Developer</title>
+<meta name="description" content="Portfolio of Filipe Ribeiro Simões, software developer and Software Engineering student at PUC-Campinas.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -40,7 +40,6 @@
   a { color: inherit; }
   .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
 
-  /* ---------- Nav ---------- */
   nav {
     position: sticky; top: 0; z-index: 10;
     background: rgba(14, 15, 17, 0.85);
@@ -53,15 +52,26 @@
   }
   .nav-logo { font-family: var(--font-mono); font-size: 14px; color: var(--text-2); text-decoration: none; }
   .nav-logo b { color: var(--accent); font-weight: 500; }
+  .nav-right { display: flex; gap: 24px; align-items: center; }
   .nav-links { display: flex; gap: 24px; }
   .nav-links a {
     font-size: 13px; color: var(--text-2); text-decoration: none;
     font-family: var(--font-mono); transition: color 0.2s;
   }
   .nav-links a:hover, .nav-links a:focus-visible { color: var(--accent); }
-  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 
-  /* ---------- Hero ---------- */
+  .lang-toggle {
+    font-family: var(--font-mono); font-size: 12px;
+    background: var(--bg-1); border: 1px solid var(--line); border-radius: 6px;
+    color: var(--text-2); cursor: pointer; padding: 2px; display: flex; gap: 2px;
+  }
+  .lang-toggle span {
+    padding: 4px 10px; border-radius: 4px; transition: all 0.2s;
+  }
+  .lang-toggle span.active { background: var(--accent); color: #06251b; font-weight: 500; }
+  .lang-toggle:hover { border-color: var(--accent); }
+
   header { padding: 110px 0 90px; border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
   header::before {
     content: ""; position: absolute; inset: 0;
@@ -80,7 +90,6 @@
     font-family: var(--font-display); font-weight: 700;
     font-size: clamp(40px, 7vw, 72px); line-height: 1.05; letter-spacing: -0.02em;
   }
-  h1 .thin { color: var(--text-3); font-weight: 400; }
   .hero-sub { margin-top: 24px; max-width: 560px; color: var(--text-2); font-size: 17px; }
   .hero-actions { margin-top: 36px; display: flex; gap: 14px; flex-wrap: wrap; }
   .btn {
@@ -92,30 +101,16 @@
   .btn-ghost { border: 1px solid var(--line); color: var(--text-2); }
   .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
-  /* ---------- Sections ---------- */
   section { padding: 90px 0; border-bottom: 1px solid var(--line); }
-  .sec-label {
-    font-family: var(--font-mono); font-size: 13px; color: var(--text-3); margin-bottom: 12px;
-  }
-  .sec-label b { color: var(--accent); font-weight: 400; }
   h2 {
     font-family: var(--font-display); font-weight: 500;
     font-size: clamp(26px, 4vw, 36px); letter-spacing: -0.01em; margin-bottom: 40px;
   }
 
-  /* ---------- Sobre ---------- */
-  .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: start; }
+  .about-grid { max-width: 680px; }
   .about-grid p { color: var(--text-2); margin-bottom: 16px; }
   .about-grid p b { color: var(--text-1); font-weight: 500; }
-  .fact-card {
-    background: var(--bg-1); border: 1px solid var(--line); border-radius: 10px; padding: 24px;
-    font-family: var(--font-mono); font-size: 13px;
-  }
-  .fact-card dt { color: var(--text-3); margin-top: 14px; }
-  .fact-card dt:first-child { margin-top: 0; }
-  .fact-card dd { color: var(--text-1); }
 
-  /* ---------- Git log (projetos) ---------- */
   .gitlog { position: relative; padding-left: 28px; }
   .gitlog::before {
     content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px;
@@ -128,11 +123,6 @@
     width: 16px; height: 16px; border-radius: 50%;
     background: var(--bg-0); border: 2px solid var(--accent);
   }
-  .commit-meta {
-    font-family: var(--font-mono); font-size: 12.5px; color: var(--text-3); margin-bottom: 10px;
-    display: flex; gap: 14px; flex-wrap: wrap;
-  }
-  .commit-meta .hash { color: var(--accent); }
   .commit-card {
     background: var(--bg-1); border: 1px solid var(--line); border-radius: 10px;
     padding: 26px 28px; transition: border-color 0.25s, transform 0.25s;
@@ -146,14 +136,12 @@
     background: var(--accent-soft); padding: 4px 10px; border-radius: 4px;
   }
 
-  /* ---------- Skills ---------- */
   .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
   .skill-group { background: var(--bg-1); border: 1px solid var(--line); border-radius: 10px; padding: 22px; }
   .skill-group h3 { font-family: var(--font-mono); font-size: 13px; font-weight: 500; color: var(--accent); margin-bottom: 14px; }
   .skill-group ul { list-style: none; }
   .skill-group li { color: var(--text-2); font-size: 14px; padding: 4px 0; }
 
-  /* ---------- Pesquisa ---------- */
   .research-card {
     background: var(--bg-1); border: 1px solid var(--line); border-left: 3px solid var(--accent);
     border-radius: 0 10px 10px 0; padding: 28px 30px;
@@ -162,19 +150,15 @@
   .research-card p { color: var(--text-2); font-size: 15px; }
   .research-card .venue { font-family: var(--font-mono); font-size: 12.5px; color: var(--text-3); margin-top: 14px; }
 
-  /* ---------- Contato ---------- */
-  .contact { text-align: left; }
   .contact-links { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
   footer { padding: 32px 0; text-align: center; }
   footer p { font-family: var(--font-mono); font-size: 12.5px; color: var(--text-3); }
 
-  /* ---------- Reveal on scroll ---------- */
   .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .reveal.on { opacity: 1; transform: none; }
 
   @media (max-width: 720px) {
-    .about-grid { grid-template-columns: 1fr; }
-    .nav-links { gap: 16px; }
+    .nav-links { display: none; }
     section, header { padding: 64px 0; }
   }
 </style>
@@ -184,93 +168,87 @@
 <nav>
   <div class="nav-inner">
     <a class="nav-logo" href="#"><b>~/</b>filipe-simoes</a>
-    <div class="nav-links">
-      <a href="#sobre">sobre</a>
-      <a href="#projetos">projetos</a>
-      <a href="#skills">skills</a>
-      <a href="#contato">contato</a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#about" data-i18n="nav_about">about</a>
+        <a href="#projects" data-i18n="nav_projects">projects</a>
+        <a href="#skills" data-i18n="nav_skills">skills</a>
+        <a href="#research" data-i18n="nav_research">academics</a>
+        <a href="#contact" data-i18n="nav_contact">contact</a>
+      </div>
+      <button class="lang-toggle" id="langToggle" aria-label="Change language">
+        <span id="langEN" class="active">EN</span><span id="langPT">PT</span>
+      </button>
     </div>
   </div>
 </nav>
 
 <header>
   <div class="wrap hero">
-    <p class="hero-eyebrow">Hortolândia · São Paulo, Brasil</p>
-    <h1>Filipe Ribeiro Simões<br><span class="thin">constrói software com propósito.</span></h1>
-    <p class="hero-sub">Desenvolvedor de software e estudante de Engenharia de Software na PUC-Campinas. Trabalho do no-code ao machine learning — passando por backend, dados e pesquisa em IA.</p>
+    <p class="hero-eyebrow" data-i18n="eyebrow">Campinas, São Paulo — Brazil</p>
+    <h1>Filipe Ribeiro Simões</h1>
+    <p class="hero-sub" data-i18n="hero_sub">Software developer and Software Engineering student at PUC-Campinas. Focused on front-end design, web and mobile development, automation, APIs &amp; artificial intelligence.</p>
     <div class="hero-actions">
-      <a class="btn btn-primary" href="#projetos">ver projetos →</a>
-      <a class="btn btn-ghost" href="mailto:filiperibeirosimoes@gmail.com">entrar em contato</a>
+      <a class="btn btn-primary" href="#projects" data-i18n="hero_cta1">view projects →</a>
+      <a class="btn btn-ghost" href="mailto:filiperibeirosimoes@gmail.com" data-i18n="hero_cta2">get in touch</a>
     </div>
   </div>
 </header>
 
-<section id="sobre">
+<section id="about">
   <div class="wrap">
-    <p class="sec-label"><b>$</b> cat sobre.md</p>
-    <h2>Sobre mim</h2>
+    <h2 data-i18n="h_about">About me</h2>
     <div class="about-grid">
       <div class="reveal">
-        <p>Sou desenvolvedor em formação com uma trajetória que cruza <b>desenvolvimento de aplicações</b>, <b>engenharia de dados</b> e <b>inteligência artificial</b>. No dia a dia, construo aplicações completas — do banco de dados à interface — e gosto de resolver problemas de ponta a ponta.</p>
-        <p>Além do código, sou coautor de um artigo acadêmico sobre o papel da IA na mitigação das mudanças climáticas, o que reflete meu interesse em usar tecnologia para problemas que importam.</p>
+        <p data-i18n="about_p1">I'm a developer in training with a path that crosses <b>application development</b>, <b>data engineering</b> and <b>artificial intelligence</b>. Day to day, I build complete applications — from database to interface — and I enjoy solving problems end to end.</p>
+        <p data-i18n="about_p2">Beyond code, I'm co-author of an academic article on AI's role in climate change mitigation, presented at a World Symposium at UFF.</p>
+        <p data-i18n="about_p3">I'm currently studying <b>Software Engineering at PUC-Campinas</b> and live in the Campinas region, São Paulo. I'm a native Portuguese speaker with advanced English and basic German — and open to work opportunities and collaborations.</p>
       </div>
-      <dl class="fact-card reveal">
-        <dt>formação</dt><dd>Eng. de Software — PUC-Campinas</dd>
-        <dt>foco</dt><dd>Full-stack · Dados · IA</dd>
-        <dt>base</dt><dd>Hortolândia, SP</dd>
-        <dt>status</dt><dd>aberto a oportunidades</dd>
-      </dl>
     </div>
   </div>
 </section>
 
-<section id="projetos">
+<section id="projects">
   <div class="wrap">
-    <p class="sec-label"><b>$</b> git log --oneline</p>
-    <h2>Projetos</h2>
+    <h2 data-i18n="h_projects">Projects</h2>
     <div class="gitlog">
 
       <article class="commit reveal">
-        <p class="commit-meta"><span class="hash">a3f9e21</span><span>2025</span><span>equipe de 6</span></p>
         <div class="commit-card">
-          <h3>PrimeStudy — plataforma de estudos com IA</h3>
-          <p>Plataforma web que usa IA generativa para apoiar estudantes. Fui responsável pela configuração do ambiente, autenticação com Firebase e JWT, modelagem de dados no Firestore e frontend de autenticação.</p>
+          <h3 data-i18n="p1h">PrimeStudy — AI-powered study platform</h3>
+          <p data-i18n="p1d">Web platform that uses generative AI to support students. I was responsible for environment setup, Firebase authentication with JWT, Firestore data modeling and the authentication frontend. (2025)</p>
           <div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Firebase</span><span class="tag">Google Gemini</span></div>
         </div>
       </article>
 
       <article class="commit reveal">
-        <p class="commit-meta"><span class="hash">7c2d84b</span><span>2025</span><span>solo</span></p>
         <div class="commit-card">
-          <h3>Data Warehouse de vendas</h3>
-          <p>Data warehouse com esquema estrela sobre 100 mil registros de vendas: quatro dimensões, tabela fato, dez consultas analíticas e visualizações para apoio à decisão.</p>
+          <h3 data-i18n="p2h">Sales Data Warehouse</h3>
+          <p data-i18n="p2d">Star-schema data warehouse over 100k sales records: four dimensions, fact table, ten analytical queries and visualizations for decision support. (2025)</p>
           <div class="tags"><span class="tag">DuckDB</span><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">matplotlib</span></div>
         </div>
       </article>
 
       <article class="commit reveal">
-        <p class="commit-meta"><span class="hash">e91b0c5</span><span>2025</span><span>solo</span></p>
         <div class="commit-card">
-          <h3>Task Manager — aplicação no-code</h3>
-          <p>Aplicação completa de gestão de tarefas: modelagem de banco, autenticação, gestão de usuários com workflows de backend e UI padronizada seguindo manual de nomenclatura.</p>
+          <h3 data-i18n="p3h">Task Manager — no-code application</h3>
+          <p data-i18n="p3d">Complete task management application: database modeling, authentication, user management with backend workflows and a standardized UI following a naming convention manual. (2025)</p>
           <div class="tags"><span class="tag">Bubble.io</span><span class="tag">No-code</span><span class="tag">UX</span></div>
         </div>
       </article>
 
       <article class="commit reveal">
-        <p class="commit-meta"><span class="hash">4d5aa17</span><span>2025</span><span>em grupo</span></p>
         <div class="commit-card">
-          <h3>API com CI/CD e testes automatizados</h3>
-          <p>API Node.js integrada a um repositório compartilhado, com testes unitários em Jest, testes E2E com Selenium e pipeline de integração contínua.</p>
+          <h3 data-i18n="p4h">API with CI/CD and automated tests</h3>
+          <p data-i18n="p4d">Node.js API integrated into a shared repository, with Jest unit tests, Selenium E2E tests and a continuous integration pipeline. (2025)</p>
           <div class="tags"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Jest</span><span class="tag">Selenium</span><span class="tag">CI/CD</span></div>
         </div>
       </article>
 
       <article class="commit reveal">
-        <p class="commit-meta"><span class="hash">b08f3e9</span><span>2025</span><span>solo</span></p>
         <div class="commit-card">
-          <h3>Classificador de imagens com CNN</h3>
-          <p>Pipeline completo de deep learning para classificação no CIFAR-10: data augmentation, early stopping e análise com matriz de confusão.</p>
+          <h3 data-i18n="p5h">Image classifier with CNN</h3>
+          <p data-i18n="p5d">Complete deep learning pipeline for CIFAR-10 classification: data augmentation, early stopping and confusion matrix analysis. (2025)</p>
           <div class="tags"><span class="tag">PyTorch</span><span class="tag">Python</span><span class="tag">Deep Learning</span></div>
         </div>
       </article>
@@ -281,59 +259,147 @@
 
 <section id="skills">
   <div class="wrap">
-    <p class="sec-label"><b>$</b> ls skills/</p>
-    <h2>Habilidades</h2>
+    <h2 data-i18n="h_skills">Skills</h2>
     <div class="skills-grid">
       <div class="skill-group reveal">
-        <h3>// linguagens</h3>
+        <h3 data-i18n="s1">// languages</h3>
         <ul><li>Python</li><li>JavaScript / Node.js</li><li>SQL</li><li>Lisp · Prolog</li></ul>
       </div>
       <div class="skill-group reveal">
-        <h3>// backend &amp; dados</h3>
-        <ul><li>Flask · Express</li><li>Firebase · Firestore</li><li>DuckDB</li><li>Modelagem de dados</li></ul>
+        <h3 data-i18n="s2">// backend &amp; data</h3>
+        <ul><li>Flask · Express</li><li>Firebase · Firestore</li><li>DuckDB</li><li data-i18n="s2x">Data modeling</li></ul>
       </div>
       <div class="skill-group reveal">
-        <h3>// ia &amp; ml</h3>
-        <ul><li>PyTorch</li><li>APIs de LLM (Gemini)</li><li>Regressão · CNNs</li><li>Avaliação de modelos</li></ul>
+        <h3 data-i18n="s3">// ai &amp; ml</h3>
+        <ul><li>PyTorch</li><li data-i18n="s3a">LLM APIs (Gemini)</li><li data-i18n="s3b">Regression · CNNs</li><li data-i18n="s3c">Model evaluation</li></ul>
       </div>
       <div class="skill-group reveal">
-        <h3>// ferramentas</h3>
+        <h3 data-i18n="s4">// tools</h3>
         <ul><li>Git · CI/CD</li><li>Jest · Selenium</li><li>Bubble.io</li><li>ClickUp</li></ul>
       </div>
     </div>
   </div>
 </section>
 
-<section id="pesquisa">
+<section id="research">
   <div class="wrap">
-    <p class="sec-label"><b>$</b> open pesquisa/</p>
-    <h2>Pesquisa</h2>
+    <h2 data-i18n="h_research">Research &amp; Academics</h2>
     <div class="research-card reveal">
-      <h3>IA na mitigação das mudanças climáticas e transição energética justa</h3>
-      <p>Artigo acadêmico em coautoria explorando como a inteligência artificial pode acelerar a transição energética de forma socialmente justa.</p>
-      <p class="venue">Apresentado em World Symposium — UFF · coautoria com André Felipe Simões e Gustavo José Simões</p>
+      <h3 data-i18n="r_h">AI in climate change mitigation and a just energy transition</h3>
+      <p data-i18n="r_d">Co-authored academic article exploring how artificial intelligence can accelerate the energy transition in a socially just way.</p>
+      <p class="venue" data-i18n="r_v">Presented at World Symposium — UFF · co-authored with André Felipe Simões and Gustavo José Simões</p>
     </div>
   </div>
 </section>
 
-<section id="contato" style="border-bottom: none;">
-  <div class="wrap contact">
-    <p class="sec-label"><b>$</b> ping filipe</p>
-    <h2>Vamos conversar?</h2>
-    <p style="color: var(--text-2); max-width: 520px;">Estou aberto a oportunidades de estágio, projetos e colaborações. A forma mais rápida de me encontrar é por e-mail.</p>
+<section id="contact" style="border-bottom: none;">
+  <div class="wrap">
+    <h2 data-i18n="h_contact">Contact</h2>
+    <p style="color: var(--text-2); max-width: 520px;" data-i18n="c_d">I'm open to opportunities, collaborations and projects. For anything, just reach out by email — it's where I reply the fastest.</p>
     <div class="contact-links">
       <a class="btn btn-primary" href="mailto:filiperibeirosimoes@gmail.com">filiperibeirosimoes@gmail.com</a>
       <a class="btn btn-ghost" href="https://www.linkedin.com/in/filipe-sim%C3%B5es-03692a27a/" target="_blank" rel="noopener">LinkedIn ↗</a>
-      <a class="btn btn-ghost" href="https://github.com/SEU-USUARIO" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn btn-ghost" href="https://github.com/FilipeeeRS" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 Filipe Ribeiro Simões · feito à mão com HTML e CSS</p>
+  <p data-i18n="footer">© 2026 Filipe Ribeiro Simões · made with HTML and CSS</p>
 </footer>
 
 <script>
+  const i18n = {
+    en: {
+      title: "Filipe Ribeiro Simões — Software Developer",
+      nav_about: "about", nav_projects: "projects", nav_skills: "skills", nav_research: "academics", nav_contact: "contact",
+      eyebrow: "Campinas, São Paulo — Brazil",
+      hero_sub: "Software developer and Software Engineering student at PUC-Campinas. Focused on front-end design, web and mobile development, automation, APIs &amp; artificial intelligence.",
+      hero_cta1: "view projects →", hero_cta2: "get in touch",
+      h_about: "About me",
+      about_p1: "I'm a developer in training with a path that crosses <b>application development</b>, <b>data engineering</b> and <b>artificial intelligence</b>. Day to day, I build complete applications — from database to interface — and I enjoy solving problems end to end.",
+      about_p2: "Beyond code, I'm co-author of an academic article on AI's role in climate change mitigation, presented at a World Symposium at UFF.",
+      about_p3: "I'm currently studying <b>Software Engineering at PUC-Campinas</b> and live in the Campinas region, São Paulo. I'm a native Portuguese speaker with advanced English and basic German — and open to work opportunities and collaborations.",
+      h_projects: "Projects",
+      p1h: "PrimeStudy — AI-powered study platform",
+      p1d: "Web platform that uses generative AI to support students. I was responsible for environment setup, Firebase authentication with JWT, Firestore data modeling and the authentication frontend. (2025)",
+      p2h: "Sales Data Warehouse",
+      p2d: "Star-schema data warehouse over 100k sales records: four dimensions, fact table, ten analytical queries and visualizations for decision support. (2025)",
+      p3h: "Task Manager — no-code application",
+      p3d: "Complete task management application: database modeling, authentication, user management with backend workflows and a standardized UI following a naming convention manual. (2025)",
+      p4h: "API with CI/CD and automated tests",
+      p4d: "Node.js API integrated into a shared repository, with Jest unit tests, Selenium E2E tests and a continuous integration pipeline. (2025)",
+      p5h: "Image classifier with CNN",
+      p5d: "Complete deep learning pipeline for CIFAR-10 classification: data augmentation, early stopping and confusion matrix analysis. (2025)",
+      h_skills: "Skills",
+      s1: "// languages", s2: "// backend &amp; data", s2x: "Data modeling",
+      s3: "// ai &amp; ml", s3a: "LLM APIs (Gemini)", s3b: "Regression · CNNs", s3c: "Model evaluation",
+      s4: "// tools",
+      h_research: "Research &amp; Academics",
+      r_h: "AI in climate change mitigation and a just energy transition",
+      r_d: "Co-authored academic article exploring how artificial intelligence can accelerate the energy transition in a socially just way.",
+      r_v: "Presented at World Symposium — UFF · co-authored with André Felipe Simões and Gustavo José Simões",
+      h_contact: "Contact",
+      c_d: "I'm open to opportunities, collaborations and projects. For anything, just reach out by email — it's where I reply the fastest.",
+      footer: "© 2026 Filipe Ribeiro Simões · made with HTML and CSS"
+    },
+    pt: {
+      title: "Filipe Ribeiro Simões — Desenvolvedor de Software",
+      nav_about: "sobre", nav_projects: "projetos", nav_skills: "skills", nav_research: "academia", nav_contact: "contato",
+      eyebrow: "Campinas, São Paulo — Brasil",
+      hero_sub: "Desenvolvedor de software e estudante de Engenharia de Software na PUC-Campinas. Focado em design front-end, desenvolvimento web e mobile, automação, APIs &amp; inteligência artificial.",
+      hero_cta1: "ver projetos →", hero_cta2: "entrar em contato",
+      h_about: "Sobre mim",
+      about_p1: "Sou desenvolvedor em formação com uma trajetória que cruza <b>desenvolvimento de aplicações</b>, <b>engenharia de dados</b> e <b>inteligência artificial</b>. No dia a dia, construo aplicações completas — do banco de dados à interface — e gosto de resolver problemas de ponta a ponta.",
+      about_p2: "Além do código, sou coautor de um artigo acadêmico sobre o papel da IA na mitigação das mudanças climáticas, apresentado em um World Symposium na UFF.",
+      about_p3: "Atualmente curso <b>Engenharia de Software na PUC-Campinas</b> e moro na região de Campinas, São Paulo. Falo português (nativo), inglês (avançado) e alemão (básico) — e estou aberto a oportunidades de trabalho e colaborações.",
+      h_projects: "Projetos",
+      p1h: "PrimeStudy — plataforma de estudos com IA",
+      p1d: "Plataforma web que usa IA generativa para apoiar estudantes. Fui responsável pela configuração do ambiente, autenticação com Firebase e JWT, modelagem de dados no Firestore e frontend de autenticação. (2025)",
+      p2h: "Data Warehouse de vendas",
+      p2d: "Data warehouse com esquema estrela sobre 100 mil registros de vendas: quatro dimensões, tabela fato, dez consultas analíticas e visualizações para apoio à decisão. (2025)",
+      p3h: "Task Manager — aplicação no-code",
+      p3d: "Aplicação completa de gestão de tarefas: modelagem de banco, autenticação, gestão de usuários com workflows de backend e UI padronizada seguindo manual de nomenclatura. (2025)",
+      p4h: "API com CI/CD e testes automatizados",
+      p4d: "API Node.js integrada a um repositório compartilhado, com testes unitários em Jest, testes E2E com Selenium e pipeline de integração contínua. (2025)",
+      p5h: "Classificador de imagens com CNN",
+      p5d: "Pipeline completo de deep learning para classificação no CIFAR-10: data augmentation, early stopping e análise com matriz de confusão. (2025)",
+      h_skills: "Habilidades",
+      s1: "// linguagens", s2: "// backend &amp; dados", s2x: "Modelagem de dados",
+      s3: "// ia &amp; ml", s3a: "APIs de LLM (Gemini)", s3b: "Regressão · CNNs", s3c: "Avaliação de modelos",
+      s4: "// ferramentas",
+      h_research: "Pesquisa &amp; Academia",
+      r_h: "IA na mitigação das mudanças climáticas e transição energética justa",
+      r_d: "Artigo acadêmico em coautoria explorando como a inteligência artificial pode acelerar a transição energética de forma socialmente justa.",
+      r_v: "Apresentado em World Symposium — UFF · coautoria com André Felipe Simões e Gustavo José Simões",
+      h_contact: "Contato",
+      c_d: "Estou aberto a oportunidades, colaborações e projetos. Qualquer coisa, entre em contato por e-mail — é por onde respondo mais fácil.",
+      footer: "© 2026 Filipe Ribeiro Simões · feito com HTML e CSS"
+    }
+  };
+
+  function setLang(lang) {
+    const dict = i18n[lang];
+    document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+    document.title = dict.title;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.getElementById('langEN').classList.toggle('active', lang === 'en');
+    document.getElementById('langPT').classList.toggle('active', lang === 'pt');
+    try { localStorage.setItem('lang', lang); } catch (e) {}
+  }
+
+  document.getElementById('langToggle').addEventListener('click', () => {
+    const current = document.documentElement.lang.startsWith('pt') ? 'pt' : 'en';
+    setLang(current === 'en' ? 'pt' : 'en');
+  });
+
+  let saved = 'en';
+  try { saved = localStorage.getItem('lang') || 'en'; } catch (e) {}
+  if (saved === 'pt') setLang('pt');
+
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
   }, { threshold: 0.12 });
