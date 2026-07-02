@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Filipe Ribeiro Simões — Software Developer</title>
 <meta name="description" content="Portfolio of Filipe Ribeiro Simões, software developer and Software Engineering student at PUC-Campinas.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230e0f11'/%3E%3Crect width='64' height='64' rx='14' fill='none' stroke='%231d9e75' stroke-width='3'/%3E%3Ctext x='32' y='42' font-family='JetBrains Mono, monospace' font-size='24' font-weight='bold' fill='%231d9e75' text-anchor='middle'%3EFRS%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -72,7 +73,7 @@
   .lang-toggle span.active { background: var(--accent); color: #06251b; font-weight: 500; }
   .lang-toggle:hover { border-color: var(--accent); }
 
-  header { padding: 110px 0 90px; border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
+  header { padding: 72px 0 64px; border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
   header::before {
     content: ""; position: absolute; inset: 0;
     background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
@@ -90,8 +91,8 @@
     font-family: var(--font-display); font-weight: 700;
     font-size: clamp(40px, 7vw, 72px); line-height: 1.05; letter-spacing: -0.02em;
   }
-  .hero-sub { margin-top: 24px; max-width: 560px; color: var(--text-2); font-size: 17px; }
-  .hero-actions { margin-top: 36px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero-sub { margin-top: 18px; max-width: 560px; color: var(--text-2); font-size: 17px; }
+  .hero-actions { margin-top: 28px; display: flex; gap: 14px; flex-wrap: wrap; }
   .btn {
     font-family: var(--font-mono); font-size: 14px; text-decoration: none;
     padding: 11px 22px; border-radius: 6px; transition: all 0.2s;
@@ -101,13 +102,13 @@
   .btn-ghost { border: 1px solid var(--line); color: var(--text-2); }
   .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
-  section { padding: 90px 0; border-bottom: 1px solid var(--line); }
+  section { padding: 56px 0; border-bottom: 1px solid var(--line); }
   h2 {
     font-family: var(--font-display); font-weight: 500;
-    font-size: clamp(26px, 4vw, 36px); letter-spacing: -0.01em; margin-bottom: 40px;
+    font-size: clamp(26px, 4vw, 36px); letter-spacing: -0.01em; margin-bottom: 28px;
   }
 
-  .about-grid { max-width: 680px; }
+  .about-grid { max-width: 100%; }
   .about-grid p { color: var(--text-2); margin-bottom: 16px; }
   .about-grid p b { color: var(--text-1); font-weight: 500; }
 
@@ -116,7 +117,7 @@
     content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px;
     width: 2px; background: var(--line);
   }
-  .commit { position: relative; padding-bottom: 48px; }
+  .commit { position: relative; padding-bottom: 28px; }
   .commit:last-child { padding-bottom: 0; }
   .commit::before {
     content: ""; position: absolute; left: -28px; top: 6px;
@@ -125,7 +126,7 @@
   }
   .commit-card {
     background: var(--bg-1); border: 1px solid var(--line); border-radius: 10px;
-    padding: 26px 28px; transition: border-color 0.25s, transform 0.25s;
+    padding: 20px 24px; transition: border-color 0.25s, transform 0.25s;
   }
   .commit-card:hover { border-color: var(--accent); transform: translateX(4px); }
   .commit-card h3 { font-family: var(--font-display); font-size: 20px; font-weight: 500; margin-bottom: 8px; }
@@ -159,7 +160,7 @@
 
   @media (max-width: 720px) {
     .nav-links { display: none; }
-    section, header { padding: 64px 0; }
+    section, header { padding: 44px 0; }
   }
 </style>
 </head>
@@ -190,7 +191,7 @@
     <p class="hero-sub" data-i18n="hero_sub">Software developer and Software Engineering student at PUC-Campinas. Focused on front-end design, web and mobile development, automation, APIs &amp; artificial intelligence.</p>
     <div class="hero-actions">
       <a class="btn btn-primary" href="#projects" data-i18n="hero_cta1">view projects →</a>
-      <a class="btn btn-ghost" href="mailto:filiperibeirosimoes@gmail.com" data-i18n="hero_cta2">get in touch</a>
+      <a class="btn btn-ghost" href="#contact" data-i18n="hero_cta2">get in touch</a>
     </div>
   </div>
 </header>
@@ -226,14 +227,6 @@
           <h3 data-i18n="p2h">Sales Data Warehouse</h3>
           <p data-i18n="p2d">Star-schema data warehouse over 100k sales records: four dimensions, fact table, ten analytical queries and visualizations for decision support. (2025)</p>
           <div class="tags"><span class="tag">DuckDB</span><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">matplotlib</span></div>
-        </div>
-      </article>
-
-      <article class="commit reveal">
-        <div class="commit-card">
-          <h3 data-i18n="p3h">Task Manager — no-code application</h3>
-          <p data-i18n="p3d">Complete task management application: database modeling, authentication, user management with backend workflows and a standardized UI following a naming convention manual. (2025)</p>
-          <div class="tags"><span class="tag">Bubble.io</span><span class="tag">No-code</span><span class="tag">UX</span></div>
         </div>
       </article>
 
@@ -300,12 +293,13 @@
       <a class="btn btn-primary" href="mailto:filiperibeirosimoes@gmail.com">filiperibeirosimoes@gmail.com</a>
       <a class="btn btn-ghost" href="https://www.linkedin.com/in/filipe-sim%C3%B5es-03692a27a/" target="_blank" rel="noopener">LinkedIn ↗</a>
       <a class="btn btn-ghost" href="https://github.com/FilipeeeRS" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="btn btn-ghost" href="https://drive.google.com/drive/folders/1_fiRPVKMXtfE_D6npRSCxEnWd31ryBQX" target="_blank" rel="noopener" data-i18n="c_cert">Certificates ↗</a>
     </div>
   </div>
 </section>
 
 <footer>
-  <p data-i18n="footer">© 2026 Filipe Ribeiro Simões · made with HTML and CSS</p>
+  <p data-i18n="footer">© 2026 · made with HTML and CSS</p>
 </footer>
 
 <script>
@@ -325,8 +319,6 @@
       p1d: "Web platform that uses generative AI to support students. I was responsible for environment setup, Firebase authentication with JWT, Firestore data modeling and the authentication frontend. (2025)",
       p2h: "Sales Data Warehouse",
       p2d: "Star-schema data warehouse over 100k sales records: four dimensions, fact table, ten analytical queries and visualizations for decision support. (2025)",
-      p3h: "Task Manager — no-code application",
-      p3d: "Complete task management application: database modeling, authentication, user management with backend workflows and a standardized UI following a naming convention manual. (2025)",
       p4h: "API with CI/CD and automated tests",
       p4d: "Node.js API integrated into a shared repository, with Jest unit tests, Selenium E2E tests and a continuous integration pipeline. (2025)",
       p5h: "Image classifier with CNN",
@@ -341,7 +333,8 @@
       r_v: "Presented at World Symposium — UFF · co-authored with André Felipe Simões and Gustavo José Simões",
       h_contact: "Contact",
       c_d: "I'm open to opportunities, collaborations and projects. For anything, just reach out by email — it's where I reply the fastest.",
-      footer: "© 2026 Filipe Ribeiro Simões · made with HTML and CSS"
+      c_cert: "Certificates ↗",
+      footer: "© 2026 · made with HTML and CSS"
     },
     pt: {
       title: "Filipe Ribeiro Simões — Desenvolvedor de Software",
@@ -358,8 +351,6 @@
       p1d: "Plataforma web que usa IA generativa para apoiar estudantes. Fui responsável pela configuração do ambiente, autenticação com Firebase e JWT, modelagem de dados no Firestore e frontend de autenticação. (2025)",
       p2h: "Data Warehouse de vendas",
       p2d: "Data warehouse com esquema estrela sobre 100 mil registros de vendas: quatro dimensões, tabela fato, dez consultas analíticas e visualizações para apoio à decisão. (2025)",
-      p3h: "Task Manager — aplicação no-code",
-      p3d: "Aplicação completa de gestão de tarefas: modelagem de banco, autenticação, gestão de usuários com workflows de backend e UI padronizada seguindo manual de nomenclatura. (2025)",
       p4h: "API com CI/CD e testes automatizados",
       p4d: "API Node.js integrada a um repositório compartilhado, com testes unitários em Jest, testes E2E com Selenium e pipeline de integração contínua. (2025)",
       p5h: "Classificador de imagens com CNN",
@@ -374,7 +365,8 @@
       r_v: "Apresentado em World Symposium — UFF · coautoria com André Felipe Simões e Gustavo José Simões",
       h_contact: "Contato",
       c_d: "Estou aberto a oportunidades, colaborações e projetos. Qualquer coisa, entre em contato por e-mail — é por onde respondo mais fácil.",
-      footer: "© 2026 Filipe Ribeiro Simões · feito com HTML e CSS"
+      c_cert: "Certificados ↗",
+      footer: "© 2026 · feito com HTML e CSS"
     }
   };
 
